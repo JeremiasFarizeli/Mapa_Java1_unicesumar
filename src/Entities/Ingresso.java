@@ -59,14 +59,13 @@ public class Ingresso extends Evento {
         if (null != tp) {
             switch (tp) {
                 case PISTA -> {
-                    double valor = getVa
-                    return get;
+                    return getValorUnicoEvento();
                 }
                 case VIP -> {
-                    return getValorUnicoEvento() * (30*100);
+                    return getValorUnicoEvento() * (30 * 100);
                 }
                 case CAMAROTE -> {
-                    return getValorUnicoEvento() * (60*100);
+                    return getValorUnicoEvento() * (60 * 100);
                 }
                 default -> {
                 }
@@ -74,13 +73,12 @@ public class Ingresso extends Evento {
         }
         return 0;
     }
-    
-    public String Resumo(){
-        
-        String resumo = "Titular: " + getNomeCliente() + "CPF: " + getCPF() + "Dados do Evento: ..." ;
-        
+
+    public String Resumo() {
+
+        String resumo = "Titular: " + getNomeCliente() + "CPF: " + getCPF() + "Dados do Evento: ...";
+
         return resumo;
     }
-
 
 }
