@@ -8,34 +8,19 @@ package Entities;
  *
  * @author jeremias
  */
-public class Ingresso extends Evento {
-
-    private String nomeCliente;
-    private int CPF;
+public class Ingresso extends Pessoa {
+      
     private String EventoRelacionado;
     private TipoIngresso TipoIngresso;
+    //private double valorUnicoEvento;
 
-    public Ingresso(String nomeCliente, int CPF, String EventoRelacionado, TipoIngresso TipoIngresso) {
-        this.nomeCliente = nomeCliente;
-        this.CPF = CPF;
+    public Ingresso(String EventoRelacionado, TipoIngresso TipoIngresso, double valorUnicoEvento) {
         this.EventoRelacionado = EventoRelacionado;
         this.TipoIngresso = TipoIngresso;
+        this.valorUnicoEvento = valorUnicoEvento;
     }
 
-    public String getNomeCliente() {
-        return nomeCliente;
-    }
-
-    public void setNomeCliente(String nomeCliente) {
-        this.nomeCliente = nomeCliente;
-    }
-
-    public int getCPF() {
-        return CPF;
-    }
-
-    public void setCPF(int CPF) {
-        this.CPF = CPF;
+    public Ingresso() {
     }
 
     public String getEventoRelacionado() {
@@ -54,29 +39,29 @@ public class Ingresso extends Evento {
         this.TipoIngresso = TipoIngresso;
     }
 
-    public double ValorIngresso(TipoIngresso tp) {
+    public String ValorIngresso(TipoIngresso tp) {
 
         if (null != tp) {
             switch (tp) {
                 case PISTA -> {
-                    return getValorUnicoEvento();
+                    return "Valor do ingresso PISTA: " + getValorUnicoEvento();
                 }
                 case VIP -> {
-                    return getValorUnicoEvento() * (30 * 100);
+                    return "Valor do ingresso VIP: " + (getValorUnicoEvento() * 1.3);
                 }
                 case CAMAROTE -> {
-                    return getValorUnicoEvento() * (60 * 100);
+                    return "Valor do ingresso CAMAROTE: " + (getValorUnicoEvento() * 1.6);
                 }
                 default -> {
                 }
             }
         }
-        return 0;
+        return "Opção inválida";
     }
 
     public String Resumo() {
 
-        String resumo = "Titular: " + getNomeCliente() + "CPF: " + getCPF() + "Dados do Evento: ...";
+        String resumo = "Titular: " + getNomeCliente() + "CPF: " + getCPF() + "Dados do Evento: " + getEventoRelacionado();
 
         return resumo;
     }

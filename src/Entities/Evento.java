@@ -11,13 +11,29 @@ import java.util.Date;
  *
  * @author jeremias
  */
-public class Evento {
+public class Evento extends Ingresso {
 
     private String nomeEvento;
-    private Date dataEvento;
-    private double valorUnicoEvento;
+    private String dataEvento;
+    private double valorEvento;
     private int capacidadeMaxima;
-    ArrayList<Ingresso> ingressoVendido = new ArrayList();
+    private int ingressoVendido;
+
+    public Evento(String nomeEvento, String dataEvento, double valorEvento, int capacidadeMaxima) {
+        this.nomeEvento = nomeEvento;
+        this.dataEvento = dataEvento;
+        this.valorEvento = valorEvento;
+        this.capacidadeMaxima = capacidadeMaxima;
+    }
+
+
+    public double getValorEvento() {
+        return valorEvento;
+    }
+
+    public void setValorEvento(double valorEvento) {
+        this.valorEvento = valorEvento;
+    }
 
     public String getNomeEvento() {
         return nomeEvento;
@@ -27,20 +43,12 @@ public class Evento {
         this.nomeEvento = nomeEvento;
     }
 
-    public Date getDataEvento() {
+    public String getDataEvento() {
         return dataEvento;
     }
 
-    public void setDataEvento(Date dataEvento) {
+    public void setDataEvento(String dataEvento) {
         this.dataEvento = dataEvento;
-    }
-
-    public double getValorUnicoEvento() {
-        return valorUnicoEvento;
-    }
-
-    public void setValorUnicoEvento(double valorUnicoEvento) {
-        this.valorUnicoEvento = valorUnicoEvento;
     }
 
     public int getCapacidadeMaxima() {
@@ -51,21 +59,34 @@ public class Evento {
         this.capacidadeMaxima = capacidadeMaxima;
     }
 
-    public ArrayList<Ingresso> getIngressoVendido() {
-        return ingressoVendido;
+    public String getIngressoVendido() {
+        return "Ingressos vendido: " + ingressoVendido;
     }
 
-    public void setIngressoVendido(ArrayList<Ingresso> ingressoVendido) {
+    public void setIngressoVendido(int ingressoVendido) {
         this.ingressoVendido = ingressoVendido;
     }
-    
-    @Override
-    public String toString(){
-        return "Evento: " + getNomeEvento() + "Data: " + getDataEvento();
+
+    public void VenderIngresso(String EventoRelacionado, TipoIngresso TipoIngresso) {
+
+        if (this.ingressoVendido < this.capacidadeMaxima) {
+
+            setEventoRelacionado(EventoRelacionado);
+            setTipoIngresso(TipoIngresso);
+            this.ingressoVendido++;
+
+        } else {
+            System.out.println("Desculpe, evento lotado...");
+        }
     }
 
-    
-    
-    
+    @Override
+    public String toString() {
+        return "Evento: " + getNomeEvento() + " Data: " + getDataEvento();
+    }
+
+    public ArrayList<Ingresso> getIngressoVendido(String eventoRelacionado) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
 }
