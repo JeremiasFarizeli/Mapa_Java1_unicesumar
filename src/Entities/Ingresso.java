@@ -8,37 +8,27 @@ package Entities;
  *
  * @author jeremias
  */
-public class Ingresso extends Pessoa {
-      
-    private String EventoRelacionado;
-    private TipoIngresso TipoIngresso;
-    //private double valorUnicoEvento;
+public abstract class Ingresso {
 
-    public Ingresso(String EventoRelacionado, TipoIngresso TipoIngresso, double valorUnicoEvento) {
-        this.EventoRelacionado = EventoRelacionado;
-        this.TipoIngresso = TipoIngresso;
-        this.valorUnicoEvento = valorUnicoEvento;
+    private String nomeCliente;
+    private int CPF;
+    //private Evento eventoRelacionado = new Evento();
+
+    public Ingresso(String nomeCliente, int CPF) {
+        this.nomeCliente = nomeCliente;
+        this.CPF = CPF;
     }
 
     public Ingresso() {
     }
 
-    public String getEventoRelacionado() {
-        return EventoRelacionado;
-    }
+    public abstract String ValorIngresso(TipoIngresso tp);
 
-    public void setEventoRelacionado(String EventoRelacionado) {
-        this.EventoRelacionado = EventoRelacionado;
-    }
+    public abstract String Resumo();
 
-    public TipoIngresso getTipoIngresso() {
-        return TipoIngresso;
-    }
+    public abstract int getTipoIngresso();
 
-    public void setTipoIngresso(TipoIngresso TipoIngresso) {
-        this.TipoIngresso = TipoIngresso;
-    }
-
+    /*
     public String ValorIngresso(TipoIngresso tp) {
 
         if (null != tp) {
@@ -59,11 +49,13 @@ public class Ingresso extends Pessoa {
         return "Opção inválida";
     }
 
+    
     public String Resumo() {
 
         String resumo = "Titular: " + getNomeCliente() + "CPF: " + getCPF() + "Dados do Evento: " + getEventoRelacionado();
 
         return resumo;
     }
-
+    
+     */
 }
