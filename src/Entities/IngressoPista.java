@@ -26,12 +26,6 @@ public class IngressoPista extends Ingresso {
         return tipoIngresso;
     }
 
-    @Override
-    public String ValorIngresso(TipoIngresso tp) {
-
-        return "Valor do ingresso PISTA: ";
-
-    }
 
     @Override
     public String Resumo() {

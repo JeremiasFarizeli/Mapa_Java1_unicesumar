@@ -25,12 +25,6 @@ public class IngressoVip extends Ingresso{
         return tipoIngresso;
     }
 
-    @Override
-    public String ValorIngresso(TipoIngresso tp) {
-        
-        return "Valor do ingresso VIP: ";
-        
-    }
 
     @Override
     public String Resumo() {

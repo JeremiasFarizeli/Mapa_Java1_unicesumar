@@ -25,12 +25,7 @@ public class IngressoCamarote extends Ingresso{
         return tipoIngresso;
     }
     
-    @Override
-    public String ValorIngresso(TipoIngresso tp) {
-        
-        
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+
 
     @Override
     public String Resumo() {

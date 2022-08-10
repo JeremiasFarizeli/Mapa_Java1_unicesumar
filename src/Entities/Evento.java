@@ -97,25 +97,47 @@ public class Evento extends Ingresso {
     }
 
     //  METODOS
-    public String VenderIngresso(Ingresso ingresso, int getTipoIngresso, int capacidadeMaxima) {
+    public String ImprimirValorIngresso(int getTipoIngresso) {
+        switch (getTipoIngresso) {
+            case 1 -> { // Pista 
+                System.out.println("Valor do ingresso PISTA: " + getValorUnico());
+                break;
+            }
+            case 2 -> { // VIP
+                System.out.println("Valor do ingresso VIP: " + getValorUnico() * 1.3);
+                break;
+            }
+            case 3 -> { // Camarote
+                System.out.println("Valor do ingresso CAMAROTE: " + getValorUnico() * 1.6);
+                break;
+            }
+            default -> {
+                return "";
+            }
+                
+        }
+        return null;   
+    }
+
+    public String VenderIngresso(Ingresso ingresso, int getTipoIngresso) {
 
         if (getQtdIngressoVendido() < getCapacidadeMaxima()) {
 
             switch (getTipoIngresso) {
                 case 1 -> { // Pista 
-                    //setIngressoVendidoPista(ingressoVendidoPista);
                     this.ingressoVendidoPista.add((IngressoPista) ingresso);
-                    System.out.println("Valor do ingresso PISTA: " + getValorUnico());
+                    System.out.println("Vendido ingresso PISTA: " + getValorUnico());
+                    break;
                 }
                 case 2 -> { // VIP
-                    //setIngressoVendidoVip(ingressoVendidoVip);
                     this.ingressoVendidoVip.add((IngressoVip) ingresso);
-                    System.out.println("Valor do ingresso VIP: " + getValorUnico() * 1.3);
+                    System.out.println("Vendido ingresso VIP: " + getValorUnico() * 1.3);
+                    break;
                 }
                 case 3 -> { // Camarote
                     this.ingressoVendidoCamarote.add((IngressoCamarote) ingresso);
-                    setIngressoVendidoCamarote(ingressoVendidoCamarote);
-                    System.out.println("Valor do ingresso CAMAROTE: " + getValorUnico() * 1.6);
+                    System.out.println("Vendido ingresso CAMAROTE: " + getValorUnico() * 1.6);
+                    break;
                 }
             }
 
@@ -127,17 +149,13 @@ public class Evento extends Ingresso {
         return "";
     }
 
+
     @Override
     public String toString() {
         return "Evento: " + getNomeEvento() + " Data: " + getDataEvento();
     }
 
     public ArrayList<Ingresso> getIngressoVendido(String eventoRelacionado) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public String ValorIngresso(TipoIngresso tp) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 

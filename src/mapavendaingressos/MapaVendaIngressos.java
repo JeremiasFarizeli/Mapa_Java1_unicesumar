@@ -27,13 +27,9 @@ public class MapaVendaIngressos {
         Scanner input = new Scanner(System.in);
 
         //  Init do evento, informando nomeEvento, dataEvento, capacidadeMaxima.
-        Evento showKatedral = new Evento("Show Katedral", "23/12/2022", 100, 3);
+        Evento showKatedral = new Evento("Show Katedral", "23/12/2022", 100, 50);
 
-        //IngressoPista ingressoPista = new IngressoPista("Jeremias", 123456987);
-        //IngressoVip ingressoVip = new IngressoVip();
-        //IngressoCamarote ingressoCamarote = new IngressoCamarote();
-        
-        
+ 
         //  CRIAÇÃO DE INGRESSOS
         Ingresso Ingresso = new IngressoVip("Daveco", 1236598);
         Ingresso Ingresso2 = new IngressoPista("Daveco2", 1236598);
@@ -41,13 +37,18 @@ public class MapaVendaIngressos {
 
         
         //  VENDA DE INGRESSOS
-        showKatedral.VenderIngresso(Ingresso, Ingresso.getTipoIngresso(), showKatedral.getCapacidadeMaxima());
-        showKatedral.VenderIngresso(Ingresso2, Ingresso2.getTipoIngresso(), showKatedral.getCapacidadeMaxima());
-        showKatedral.VenderIngresso(Ingresso3, Ingresso3.getTipoIngresso(), showKatedral.getCapacidadeMaxima());
-        showKatedral.VenderIngresso(Ingresso3, Ingresso3.getTipoIngresso(), showKatedral.getCapacidadeMaxima());
-        showKatedral.VenderIngresso(Ingresso3, Ingresso3.getTipoIngresso(), showKatedral.getCapacidadeMaxima());
-        showKatedral.VenderIngresso(Ingresso3, Ingresso3.getTipoIngresso(), showKatedral.getCapacidadeMaxima());
+        showKatedral.VenderIngresso(Ingresso, Ingresso.getTipoIngresso());
+        showKatedral.VenderIngresso(Ingresso2, Ingresso2.getTipoIngresso());
+        showKatedral.VenderIngresso(Ingresso3, Ingresso3.getTipoIngresso());
+        showKatedral.VenderIngresso(Ingresso3, Ingresso3.getTipoIngresso());
         System.out.println("");
+        
+        //  Impreimir valor de Ingresso
+        showKatedral.ImprimirValorIngresso(Ingresso.getTipoIngresso());
+        
+        
+        //  Mostrar Quantidade de ingressos vendidos
+        System.out.println("Quantidade de ingressos vendidos: " + showKatedral.getQtdIngressoVendido());
      
        
 
@@ -55,15 +56,7 @@ public class MapaVendaIngressos {
         
         
         
-        //Ingresso ingresso = new Ingresso(evento.getNomeEvento(), TipoIngresso.CAMAROTE, evento.getValorEvento());
-        //evento.VenderIngresso(evento.getNomeEvento(), TipoIngresso.CAMAROTE);
-        //evento.VenderIngresso(evento.getNomeEvento(), TipoIngresso.VIP);
-        //evento.VenderIngresso(evento.getNomeEvento(), TipoIngresso.PISTA);
-        //evento.VenderIngresso(evento.getNomeEvento(), TipoIngresso.PISTA);
-        //System.out.println(evento.toString());
-        //System.out.println(evento.ValorIngresso(TipoIngresso.PISTA));
-        //System.out.println(evento.getIngressoVendido());
-        //System.out.println(evento.Resumo());
+
         input.close();
     }
 

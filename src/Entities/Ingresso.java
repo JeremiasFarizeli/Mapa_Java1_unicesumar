@@ -22,8 +22,6 @@ public abstract class Ingresso {
     public Ingresso() {
     }
 
-    public abstract String ValorIngresso(TipoIngresso tp);
-
     public abstract String Resumo();
 
     public abstract int getTipoIngresso();
@@ -58,4 +56,5 @@ public abstract class Ingresso {
     }
     
      */
+
 }
