@@ -19,18 +19,24 @@ public class IngressoCamarote extends Ingresso{
     public IngressoCamarote() {
     }
     
+    
+    
 
     @Override
     public int getTipoIngresso() {
         return tipoIngresso;
     }
     
-
+    @Override
+    public String toString(){
+        return "Evento: ";
+    }
+    
 
     @Override
-    public String Resumo() {
+    public String Resumo(Ingresso ingresso) {
         
-        return "Valor do ingresso CAMAROTE: ";
+        return "Valor do ingresso CAMAROTE: " ;
        
     }
     

@@ -4,6 +4,7 @@
  */
 package Entities;
 
+
 /**
  *
  * @author jeremias
@@ -12,49 +13,48 @@ public abstract class Ingresso {
 
     private String nomeCliente;
     private int CPF;
-    //private Evento eventoRelacionado = new Evento();
+    private Evento eventoRelacionado;
 
     public Ingresso(String nomeCliente, int CPF) {
         this.nomeCliente = nomeCliente;
         this.CPF = CPF;
+        this.eventoRelacionado = new Evento();
+        
     }
 
     public Ingresso() {
     }
 
-    public abstract String Resumo();
+    public String getNomeCliente() {
+        return nomeCliente;
+    }
+
+    public void setNomeCliente(String nomeCliente) {
+        this.nomeCliente = nomeCliente;
+    }
+
+    public int getCPF() {
+        return CPF;
+    }
+
+    public void setCPF(int CPF) {
+        this.CPF = CPF;
+    }
+
+    public Evento getEventoRelacionado() {
+        return eventoRelacionado;
+    }
+
+    public void setEventoRelacionado(Evento eventoRelacionado) {
+        this.eventoRelacionado = eventoRelacionado;
+    }
+    
+    
+    
+    //public abstract String toString();
+
+    public abstract String Resumo(Ingresso ingresso);
 
     public abstract int getTipoIngresso();
-
-    /*
-    public String ValorIngresso(TipoIngresso tp) {
-
-        if (null != tp) {
-            switch (tp) {
-                case PISTA -> {
-                    return "Valor do ingresso PISTA: " + getValorUnicoEvento();
-                }
-                case VIP -> {
-                    return "Valor do ingresso VIP: " + (getValorUnicoEvento() * 1.3);
-                }
-                case CAMAROTE -> {
-                    return "Valor do ingresso CAMAROTE: " + (getValorUnicoEvento() * 1.6);
-                }
-                default -> {
-                }
-            }
-        }
-        return "Opção inválida";
-    }
-
-    
-    public String Resumo() {
-
-        String resumo = "Titular: " + getNomeCliente() + "CPF: " + getCPF() + "Dados do Evento: " + getEventoRelacionado();
-
-        return resumo;
-    }
-    
-     */
 
 }

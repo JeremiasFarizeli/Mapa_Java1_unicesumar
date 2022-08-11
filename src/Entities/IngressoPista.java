@@ -28,7 +28,7 @@ public class IngressoPista extends Ingresso {
 
 
     @Override
-    public String Resumo() {
+    public String Resumo(Ingresso ingresso) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 

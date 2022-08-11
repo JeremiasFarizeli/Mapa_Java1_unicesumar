@@ -26,37 +26,53 @@ public class MapaVendaIngressos {
         Locale.setDefault(Locale.US);
         Scanner input = new Scanner(System.in);
 
-        //  Init do evento, informando nomeEvento, dataEvento, capacidadeMaxima.
+        //  Init do evento, informando nomeEvento, dataEvento, ValorIngresso, capacidadeMaxima.
         Evento showKatedral = new Evento("Show Katedral", "23/12/2022", 100, 50);
-
- 
-        //  CRIAÇÃO DE INGRESSOS
-        Ingresso Ingresso = new IngressoVip("Daveco", 1236598);
-        Ingresso Ingresso2 = new IngressoPista("Daveco2", 1236598);
-        Ingresso Ingresso3 = new IngressoCamarote("Daveco2", 1236598);
+        Evento novoSom = new Evento("Novo Som ao vivo", "07/10/2022", 120.00 , 500);
 
         
-        //  VENDA DE INGRESSOS
+        //  CRIAÇÃO DE INGRESSOS
+        Ingresso Ingresso = new IngressoPista("Fulano de tal", 0000003265);
+        Ingresso Ingresso2 = new IngressoVip("Cicrano Silva Sauro", 1236598);
+        Ingresso Ingresso3 = new IngressoCamarote("Bertano Silva Sauro Junior", 1236598);
+
+       
+        
+        System.out.println("*********** VENDA DE INGRESSOS ***********\n");
         showKatedral.VenderIngresso(Ingresso, Ingresso.getTipoIngresso());
         showKatedral.VenderIngresso(Ingresso2, Ingresso2.getTipoIngresso());
         showKatedral.VenderIngresso(Ingresso3, Ingresso3.getTipoIngresso());
         showKatedral.VenderIngresso(Ingresso3, Ingresso3.getTipoIngresso());
-        System.out.println("");
+        novoSom.VenderIngresso(Ingresso, Ingresso.getTipoIngresso());
+        System.out.println("\n\n");
+
         
-        //  Impreimir valor de Ingresso
+        
+        System.out.println("*********** VALORES DOS INGRESSOS ***********\n");        
+        //  Imprimir valor de Ingresso
         showKatedral.ImprimirValorIngresso(Ingresso.getTipoIngresso());
+        showKatedral.ImprimirValorIngresso(Ingresso2.getTipoIngresso());
+        showKatedral.ImprimirValorIngresso(Ingresso3.getTipoIngresso());
+        System.out.println("\n\n");
         
         
+        
+        
+        System.out.println("*********** QUANTIDADE DE INGRESSOS VENDIDOS ***********\n"); 
         //  Mostrar Quantidade de ingressos vendidos
-        System.out.println("Quantidade de ingressos vendidos: " + showKatedral.getQtdIngressoVendido());
-     
-       
+        System.out.println("Quantidade de ingressos vendidos: " + showKatedral.getQtdIngressoVendido()); 
+        System.out.println("\n\n");
+        
+        
+        
+        
+        System.out.println("*********** RESUMO DO EVENTO E INGRESSO ***********\n"); 
+        // Métodos para Mostrar Resumo e detalhes do evento e do ingresso.
+        System.out.println(showKatedral.toString() + showKatedral.Resumo(Ingresso));
 
         
         
         
-        
-
         input.close();
     }
 

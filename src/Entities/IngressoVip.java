@@ -27,7 +27,7 @@ public class IngressoVip extends Ingresso{
 
 
     @Override
-    public String Resumo() {
+    public String Resumo(Ingresso ingresso) {
         return "";
     }
     

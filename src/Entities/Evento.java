@@ -22,6 +22,8 @@ public class Evento extends Ingresso {
     private List<IngressoVip> ingressoVendidoVip = new ArrayList<IngressoVip>();
     private List<IngressoCamarote> ingressoVendidoCamarote = new ArrayList<IngressoCamarote>();
 
+    private List<Ingresso> Ingresso = new ArrayList<Ingresso>();
+
     public Evento() {
     }
 
@@ -30,6 +32,14 @@ public class Evento extends Ingresso {
         this.dataEvento = dataEvento;
         this.valorUnico = valorUnico;
         this.capacidadeMaxima = capacidadeMaxima;
+    }
+
+    public List<Ingresso> getIngresso() {
+        return Ingresso;
+    }
+
+    public void setIngresso(List<Ingresso> Ingresso) {
+        this.Ingresso = Ingresso;
     }
 
     public String getNomeEvento() {
@@ -114,9 +124,9 @@ public class Evento extends Ingresso {
             default -> {
                 return "";
             }
-                
+
         }
-        return null;   
+        return null;
     }
 
     public String VenderIngresso(Ingresso ingresso, int getTipoIngresso) {
@@ -149,18 +159,23 @@ public class Evento extends Ingresso {
         return "";
     }
 
-
+    
+    
     @Override
     public String toString() {
-        return "Evento: " + getNomeEvento() + " Data: " + getDataEvento();
-    }
-
-    public ArrayList<Ingresso> getIngressoVendido(String eventoRelacionado) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return "\n##################################\nDados do Evento:\n" + getNomeEvento() + ", Data: " + getDataEvento() +"\n\n";
     }
 
     @Override
-    public String Resumo() {
+    public String Resumo(Ingresso ingresso) {
+        String resumo = "Dados do imgresso: \n" + "Nome Cliente: " + ingresso.getNomeCliente() + "\nCPF: " + ingresso.getCPF() + "\n##################################\n\n";
+        return resumo;
+    }
+
+    
+    
+    
+    public ArrayList<Ingresso> getIngressoVendido(String eventoRelacionado) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
