@@ -18,11 +18,9 @@ public class Evento extends Ingresso {
     private double valorUnico;
     private int capacidadeMaxima;
     private int qtdIngressoVendido = 0;
-    private List<IngressoPista> ingressoVendidoPista = new ArrayList<IngressoPista>();
-    private List<IngressoVip> ingressoVendidoVip = new ArrayList<IngressoVip>();
-    private List<IngressoCamarote> ingressoVendidoCamarote = new ArrayList<IngressoCamarote>();
-
-    private List<Ingresso> Ingresso = new ArrayList<Ingresso>();
+    private List<Ingresso> ingressoVendidoPista = new ArrayList<>();
+    private List<Ingresso> ingressoVendidoVip = new ArrayList<>();
+    private List<Ingresso> ingressoVendidoCamarote = new ArrayList<>();
 
     public Evento() {
     }
@@ -32,14 +30,6 @@ public class Evento extends Ingresso {
         this.dataEvento = dataEvento;
         this.valorUnico = valorUnico;
         this.capacidadeMaxima = capacidadeMaxima;
-    }
-
-    public List<Ingresso> getIngresso() {
-        return Ingresso;
-    }
-
-    public void setIngresso(List<Ingresso> Ingresso) {
-        this.Ingresso = Ingresso;
     }
 
     public String getNomeEvento() {
@@ -82,27 +72,27 @@ public class Evento extends Ingresso {
         this.qtdIngressoVendido = qtdIngressoVendido;
     }
 
-    public List<IngressoVip> getIngressoVendidoVip() {
+    public List<Ingresso> getIngressoVendidoVip() {
         return ingressoVendidoVip;
     }
 
-    public void setIngressoVendidoVip(List<IngressoVip> ingressoVendidoVip) {
+    public void setIngressoVendidoVip(List<Ingresso> ingressoVendidoVip) {
         this.ingressoVendidoVip = ingressoVendidoVip;
     }
 
-    public List<IngressoPista> getIngressoVendidoPista() {
+    public List<Ingresso> getIngressoVendidoPista() {
         return ingressoVendidoPista;
     }
 
-    public void setIngressoVendidoPista(List<IngressoPista> ingressoVendidoPista) {
+    public void setIngressoVendidoPista(List<Ingresso> ingressoVendidoPista) {
         this.ingressoVendidoPista = ingressoVendidoPista;
     }
 
-    public List<IngressoCamarote> getIngressoVendidoCamarote() {
+    public List<Ingresso> getIngressoVendidoCamarote() {
         return ingressoVendidoCamarote;
     }
 
-    public void setIngressoVendidoCamarote(List<IngressoCamarote> ingressoVendidoCamarote) {
+    public void setIngressoVendidoCamarote(List<Ingresso> ingressoVendidoCamarote) {
         this.ingressoVendidoCamarote = ingressoVendidoCamarote;
     }
 
@@ -110,21 +100,20 @@ public class Evento extends Ingresso {
     public String ImprimirValorIngresso(int getTipoIngresso) {
         switch (getTipoIngresso) {
             case 1 -> { // Pista 
-                System.out.println("Valor do ingresso PISTA: " + getValorUnico());
+                System.out.println("Valor do ingresso PISTA: " + String.format("%.2f", this.valorUnico));
                 break;
             }
             case 2 -> { // VIP
-                System.out.println("Valor do ingresso VIP: " + getValorUnico() * 1.3);
+                System.out.println("Valor do ingresso VIP: " + String.format("%.2f", this.valorUnico * 1.3));
                 break;
             }
             case 3 -> { // Camarote
-                System.out.println("Valor do ingresso CAMAROTE: " + getValorUnico() * 1.6);
+                System.out.println("Valor do ingresso CAMAROTE: " + String.format("%.2f", this.valorUnico * 1.6));
                 break;
             }
             default -> {
                 return "";
             }
-
         }
         return null;
     }
@@ -135,35 +124,52 @@ public class Evento extends Ingresso {
 
             switch (getTipoIngresso) {
                 case 1 -> { // Pista 
-                    this.ingressoVendidoPista.add((IngressoPista) ingresso);
-                    System.out.println("Vendido ingresso PISTA: " + getValorUnico());
+                    this.ingressoVendidoPista.add(ingresso);
+                    System.out.println("Vendido ingresso PISTA: " + String.format("%.2f", this.valorUnico) + " | Evento: " + this.nomeEvento);
                     break;
                 }
                 case 2 -> { // VIP
-                    this.ingressoVendidoVip.add((IngressoVip) ingresso);
-                    System.out.println("Vendido ingresso VIP: " + getValorUnico() * 1.3);
+                    this.ingressoVendidoVip.add(ingresso);
+                    System.out.println("Vendido ingresso VIP: " + String.format("%.2f", this.valorUnico * 1.3) + " | Evento: " + this.nomeEvento);
                     break;
                 }
                 case 3 -> { // Camarote
-                    this.ingressoVendidoCamarote.add((IngressoCamarote) ingresso);
-                    System.out.println("Vendido ingresso CAMAROTE: " + getValorUnico() * 1.6);
+                    this.ingressoVendidoCamarote.add(ingresso);
+                    System.out.println("Vendido ingresso CAMAROTE: " + String.format("%.2f", this.valorUnico * 1.6) + " | Evento: " + this.nomeEvento);
                     break;
                 }
             }
 
             setQtdIngressoVendido(getQtdIngressoVendido() + 1);
         } else {
-            System.out.println("Evento lotado ...");
+            System.out.println("Evento " + this.nomeEvento + " lotado ...");
         }
 
         return "";
     }
 
-    
-    
+    public void quantidadeIngressoVendido(Evento evento, Ingresso Pista, Ingresso Vip, Ingresso Camarote) {
+
+        System.out.println("Ingressos tipo PISTA vendidos do Evento " + this.nomeEvento + ": -> " + ingressoVendidoPista.size());
+        for (int i = 0; i < ingressoVendidoPista.size(); i++) {
+            System.out.println(evento.toString() + evento.Resumo(Pista));
+        }
+        
+        System.out.println("Ingressos tipo VIP vendidos do Evento " + this.nomeEvento + ": -> " + ingressoVendidoVip.size());
+        for (int i = 0; i < ingressoVendidoVip.size(); i++) {
+            System.out.println(evento.toString() + evento.Resumo(Vip));
+        }
+
+        System.out.println("Ingressos tipo CAMAROTE vendidos do Evento " + this.nomeEvento + ": -> " + ingressoVendidoCamarote.size());
+        for (int i = 0; i < ingressoVendidoCamarote.size(); i++) {
+            System.out.println(evento.toString() + evento.Resumo(Camarote));
+        }
+
+    }
+
     @Override
     public String toString() {
-        return "\n##################################\nDados do Evento:\n" + getNomeEvento() + ", Data: " + getDataEvento() +"\n\n";
+        return "\n##################################\nDados do Evento:\n" + getNomeEvento() + ", Data: " + getDataEvento() + "\n\n";
     }
 
     @Override
@@ -172,10 +178,8 @@ public class Evento extends Ingresso {
         return resumo;
     }
 
-    
-    
-    
     public ArrayList<Ingresso> getIngressoVendido(String eventoRelacionado) {
+
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 

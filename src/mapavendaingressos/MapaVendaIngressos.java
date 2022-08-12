@@ -28,47 +28,57 @@ public class MapaVendaIngressos {
 
         //  Init do evento, informando nomeEvento, dataEvento, ValorIngresso, capacidadeMaxima.
         Evento showKatedral = new Evento("Show Katedral", "23/12/2022", 100, 50);
-        Evento novoSom = new Evento("Novo Som ao vivo", "07/10/2022", 120.00 , 500);
+        Evento novoSom = new Evento("Novo Som ao vivo", "07/10/2022", 120.00, 500);
 
         
         //  CRIAÇÃO DE INGRESSOS
-        Ingresso Ingresso = new IngressoPista("Fulano de tal", 0000003265);
-        Ingresso Ingresso2 = new IngressoVip("Cicrano Silva Sauro", 1236598);
-        Ingresso Ingresso3 = new IngressoCamarote("Bertano Silva Sauro Junior", 1236598);
+        Ingresso ingressoPista1 = new IngressoPista("Fulano de tal", 0000003265);
+        Ingresso ingressoPista2 = new IngressoPista("Adalberto Simão Nader", 0000003265);
+        Ingresso ingressoPista3 = new IngressoPista("Jucelino Quadrado", 326512365);
+        //Ingresso ingressoPista4 = new IngressoPista("Fulano de tal", 12365987);
+        Ingresso ingressoVip1 = new IngressoVip("Cicrano Silva Sauro", 45621);
+        Ingresso ingressoVip2 = new IngressoVip("Cicrano Sauro", 1236598);
+        Ingresso ingressoVip3 = new IngressoVip("Bolsonaro Presidente Reeleito", 12398);
+        //Ingresso ingressoVip4 = new IngressoVip("Paulo Guedes", 1236598);
+        Ingresso ingressoCamarote1 = new IngressoCamarote("Thomas Manfredine", 1236598);
+        Ingresso ingressoCamarote2 = new IngressoCamarote("Bertano Silva Sauro Junior", 1236598);
 
+        
+        System.out.println("*********** VALORES DOS INGRESSOS ***********\n");        
+        showKatedral.ImprimirValorIngresso(ingressoPista1.getTipoIngresso());
+        showKatedral.ImprimirValorIngresso(ingressoVip1.getTipoIngresso());
+        showKatedral.ImprimirValorIngresso(ingressoVip1.getTipoIngresso());
+        System.out.println("\n\n");
+        
        
         
         System.out.println("*********** VENDA DE INGRESSOS ***********\n");
-        showKatedral.VenderIngresso(Ingresso, Ingresso.getTipoIngresso());
-        showKatedral.VenderIngresso(Ingresso2, Ingresso2.getTipoIngresso());
-        showKatedral.VenderIngresso(Ingresso3, Ingresso3.getTipoIngresso());
-        showKatedral.VenderIngresso(Ingresso3, Ingresso3.getTipoIngresso());
-        novoSom.VenderIngresso(Ingresso, Ingresso.getTipoIngresso());
+        showKatedral.VenderIngresso(ingressoPista1, ingressoPista1.getTipoIngresso());
+        showKatedral.VenderIngresso(ingressoPista2, ingressoPista2.getTipoIngresso());
+        showKatedral.VenderIngresso(ingressoPista3, ingressoPista3.getTipoIngresso());
+        showKatedral.VenderIngresso(ingressoVip1, ingressoVip1.getTipoIngresso());
+        showKatedral.VenderIngresso(ingressoVip2, ingressoVip2.getTipoIngresso());
+        showKatedral.VenderIngresso(ingressoVip3, ingressoVip3.getTipoIngresso());
+        showKatedral.VenderIngresso(ingressoCamarote1, ingressoCamarote1.getTipoIngresso());
+        showKatedral.VenderIngresso(ingressoCamarote2, ingressoCamarote2.getTipoIngresso());
+        novoSom.VenderIngresso(ingressoPista1, ingressoPista1.getTipoIngresso());
         System.out.println("\n\n");
 
         
-        
-        System.out.println("*********** VALORES DOS INGRESSOS ***********\n");        
-        //  Imprimir valor de Ingresso
-        showKatedral.ImprimirValorIngresso(Ingresso.getTipoIngresso());
-        showKatedral.ImprimirValorIngresso(Ingresso2.getTipoIngresso());
-        showKatedral.ImprimirValorIngresso(Ingresso3.getTipoIngresso());
-        System.out.println("\n\n");
-        
-        
+   
         
         
         System.out.println("*********** QUANTIDADE DE INGRESSOS VENDIDOS ***********\n"); 
-        //  Mostrar Quantidade de ingressos vendidos
-        System.out.println("Quantidade de ingressos vendidos: " + showKatedral.getQtdIngressoVendido()); 
+        
+        showKatedral.quantidadeIngressoVendido(showKatedral, ingressoPista1, ingressoVip1, ingressoCamarote1);
+        //System.out.println("Quantidade de ingressos vendidos: " + showKatedral.getQtdIngressoVendido()); 
         System.out.println("\n\n");
         
         
         
         
         System.out.println("*********** RESUMO DO EVENTO E INGRESSO ***********\n"); 
-        // Métodos para Mostrar Resumo e detalhes do evento e do ingresso.
-        System.out.println(showKatedral.toString() + showKatedral.Resumo(Ingresso));
+        System.out.println(showKatedral.toString() + showKatedral.Resumo(ingressoPista1));
 
         
         
